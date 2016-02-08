@@ -1,0 +1,1 @@
+INDEX VERSION 1.126+C:\Users\a595726\Salesforce-IDE\.metadata\.plugins\org.eclipse.jdt.core
