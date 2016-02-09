@@ -1,0 +1,23 @@
+<apex:page controller="DayCalendarController"  action="{!pageLoad}">
+    <script src="{!$Resource.dateJS}"></script>
+    <table border='2'> 
+ 
+  	<tr>
+        <td>Name\Dates</td>
+        	<apex:repeat var="d" value="{!date}">
+    			<td>{!d}</td>
+            </apex:repeat>
+  	</tr>
+     <apex:repeat var="c" value="{!list}">
+         <tr>
+         <td style="background-color: {!c.Contact_Color__c}">{!c.Name}</td>
+         <apex:repeat var="d" value="{!date}">
+    			<td></td>
+            </apex:repeat>
+         </tr>
+     </apex:repeat>
+ 	
+	</table>
+
+
+</apex:page>

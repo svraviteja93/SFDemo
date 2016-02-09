@@ -1,0 +1,124 @@
+<apex:page controller="leaverecord" contentType="application/vnd.ms-excel#SalesForceExport.xls" cache="true">
+    
+     
+<table class="tftable" border="1">
+   <tr><td></td> <td colspan="365" style="background-color: #FFB6C1" align="left"><b>2014</b></td> </tr>
+    <tr>
+    <td></td>
+     
+        <apex:variable value="{!0}" var="Jancount"/>
+        <apex:variable value="{!0}" var="Febcount"/>
+        <apex:variable value="{!0}" var="Marcount"/>
+        <apex:variable value="{!0}" var="Aprcount"/><apex:variable value="{!0}" var="Maycount"/>
+        <apex:variable value="{!0}" var="Juncount"/>
+        <apex:variable value="{!0}" var="Julcount"/>
+        <apex:variable value="{!0}" var="Augcount"/>
+        <apex:variable value="{!0}" var="Sepcount"/>
+        <apex:variable value="{!0}" var="Octcount"/>
+        <apex:variable value="{!0}" var="Novcount"/>
+        <apex:variable value="{!0}" var="Deccount"/>
+       <apex:repeat value="{!Month}" var="mon">
+           
+ 				<apex:outputPanel rendered="{! If(mon == 1, true, false)}"> 
+                 <apex:variable var="Jancount" value="{!Jancount+ 1}"/>  
+                  	
+               	</apex:outputPanel> 
+          	
+           <apex:outputPanel rendered="{! If(mon == 2, true, false)}"> 
+                  <apex:variable var="Febcount" value="{!Febcount+ 1}"/>
+               	</apex:outputPanel> 
+           <apex:outputPanel rendered="{! If(mon == 3, true, false)}"> 
+                	<apex:variable var="Marcount" value="{!Marcount+ 1}"/>
+               	</apex:outputPanel> 
+           <apex:outputPanel rendered="{! If(mon == 4, true, false)}"> 
+                <apex:variable var="Aprcount" value="{!Aprcount+ 1}"/>
+               	</apex:outputPanel> 
+           <apex:outputPanel rendered="{! If(mon == 5, true, false)}"> 
+                 <apex:variable var="Maycount" value="{!Maycount+ 1}"/>
+               	</apex:outputPanel> 
+           <apex:outputPanel rendered="{! If(mon == 6, true, false)}"> 
+                 <apex:variable var="Juncount" value="{!Juncount+ 1}"/>		
+               	</apex:outputPanel> 
+           <apex:outputPanel rendered="{! If(mon == 7, true, false)}"> 
+                 <apex:variable var="Julcount" value="{!Julcount+ 1}"/>	
+               	</apex:outputPanel> 
+           <apex:outputPanel rendered="{! If(mon == 8, true, false)}"> 
+                 <apex:variable var="Augcount" value="{!Augcount+ 1}"/>		
+               	</apex:outputPanel> 
+           <apex:outputPanel rendered="{! If(mon == 9, true, false)}"> 
+                  <apex:variable var="Sepcount" value="{!Sepcount+ 1}"/>		
+               	</apex:outputPanel> 
+           <apex:outputPanel rendered="{! If(mon == 10, true, false)}"> 
+                 <apex:variable var="Octcount" value="{!Octcount+ 1}"/> 		
+               	</apex:outputPanel> 
+           <apex:outputPanel rendered="{! If(mon == 11, true, false)}"> 
+                  <apex:variable var="Novcount" value="{!Novcount+ 1}"/>		
+               	</apex:outputPanel> 
+           <apex:outputPanel rendered="{! If(mon == 12, true, false)}"> 
+                  <apex:variable var="Deccount" value="{!Deccount+ 1}"/>		
+               	</apex:outputPanel> 
+       </apex:repeat> 
+         <td colspan = "{!Jancount}" style="background-color: #80D9FF">January</td>
+        <td colspan = "{!Febcount}" style="background-color: #80D9FF">Febuary</td>	
+          <td colspan = "{!Marcount}" style="background-color: #80D9FF">March</td>	
+          <td colspan = "{!Aprcount}" style="background-color: #80D9FF">April</td>
+         <td colspan = "{!Maycount}" style="background-color: #80D9FF">May</td>	
+         <td colspan = "{!Juncount}" style="background-color: #80D9FF">June</td>
+        <td colspan = "{!Julcount}" style="background-color: #80D9FF">July</td>
+         <td colspan = "{!Augcount}" style="background-color: #80D9FF">August</td>
+        <td colspan = "{!Sepcount}" style="background-color: #80D9FF">September</td>
+        <td colspan = "{!Octcount}" style="background-color: #80D9FF">October</td>
+        <td colspan = "{!Novcount}" style="background-color: #80D9FF">November</td>
+        <td colspan = "{!Deccount}" style="background-color: #80D9FF">December</td>
+    </tr>
+    <tr>
+        <td></td>
+    <apex:repeat value="{!week}" var="w">
+        <td  style="background-color: #80D9FF"><apex:outputText value="Week {!w}"></apex:outputText></td>
+        </apex:repeat>
+    </tr>
+      <tr>
+      <th style="background-color: #5C9DFF">Name/Date</th>
+      <apex:repeat value="{!OnlyDate}" var="odt">
+         <th style="background-color: #5C9DFF"><apex:outputText value="{!odt}"/></th>
+      </apex:repeat>
+      </tr> 
+    
+    <apex:repeat value="{!Contacts}" var="cont">
+      <tr>
+         <td style="background-color: #BFDB86"><b><apex:outputText value="{!cont.Name}"/></b></td>
+             <apex:repeat value="{!mydates}" var="dt">  
+                 <apex:variable value="{!0}" var="p"/>
+                 <apex:variable value="{!0}" var="q"/>
+                 <apex:variable value="{!0}" var="r"/>
+                 
+                 <apex:repeat value="{!holidays}" var="ph">
+                 <apex:outputPanel rendered="{! If(dt == ph, true, false)}">
+                  <apex:variable var="q" value="{!q+ 1}"/>
+                 </apex:outputPanel>
+                 
+               </apex:repeat>
+           
+                 
+                 <apex:repeat value="{!leaves[cont.id]}" var="dt1"> 
+                         
+                  <apex:outputpanel rendered="{!If(dt == dt1, true, false)}"> 
+                      <apex:variable var="p" value="{!p+ 1}"/>
+                           <td style="background-color: Red">1</td>
+                  </apex:outputPanel>
+                 </apex:repeat> 
+                 <apex:outputpanel rendered="{!If(p == 0, true, false)}"> 
+                     <apex:outputpanel rendered="{!If(q != 0, true, false)}">
+                      <td style="background-color: #909090"></td> 
+                     </apex:outputpanel>
+                     <apex:outputpanel rendered="{!If(q == 0, true, false)}">
+                         
+                         <td></td>
+                     
+                     </apex:outputpanel>
+                  </apex:outputPanel>
+             </apex:repeat>
+      </tr> 
+    </apex:repeat>
+</table>
+</apex:page>

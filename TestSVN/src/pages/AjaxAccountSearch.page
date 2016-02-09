@@ -1,0 +1,23 @@
+<apex:page controller="AjaxAccountSearch">
+    <apex:form >
+    	<apex:sectionHeader title="Account Search"/>
+        <apex:pageBlock title="Account Search">
+        	Account Name :&nbsp;&nbsp;&nbsp;&nbsp;
+            <apex:inputText value="{!inputText}">
+            	<apex:actionSupport action="{!searchAccount}" event="onkeyup" reRender="results" />
+            </apex:inputText>
+        </apex:pageBlock>
+        <apex:pageBlock title="Results">
+            <apex:outputPanel rendered="{!accountList.size !=0}"> 
+        	<apex:pageblocktable value="{!accountList}" var="acc" id="results">
+        		<apex:column value="{!acc.name}"/>
+        		<apex:column value="{!acc.accountnumber}"/>
+     		</apex:pageblocktable>
+        	</apex:outputPanel>
+            <apex:outputPanel rendered="{!accountList.size == 0}">
+            	<apex:outputText >No results found</apex:outputText>
+            </apex:outputPanel>
+        </apex:pageBlock>
+    
+    </apex:form>
+</apex:page>

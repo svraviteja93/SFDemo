@@ -1,0 +1,8 @@
+<apex:page >
+    <apex:form >
+        <div style="float:left">
+            <apex:iframe src="/apex/page1" scrolling="true" id="theIframe1" width="50%"/>
+        </div>
+        <apex:iframe src="/apex/Holiday_Calendar" scrolling="true" id="theIframe2" width="50%"/>
+    </apex:form>
+</apex:page>
