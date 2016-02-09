@@ -3272,3 +3272,4 @@ org.eclipse.core.runtime.AssertionFailedException: null argument:
  WARN [2016-02-09 11:06:26,802] (ComponentFactory.java:getComponentBean:1154) - Unable to get component for id 'SynonymDictionary': Unable to get bean for id 'SynonymDictionary'
 ERROR [2016-02-09 11:20:35,233] (ToolingOperationsRetryAspect.java:toolingOperationsRetry:40) - ForceRemoteException occurred while attempting to perform a tooling operation
  WARN [2016-02-09 11:20:57,131] (DefaultBuilder.java:applyDirtyMarkers:93) - TODO: apply 'Save locally only...' markers on each resource
+ WARN [2016-02-09 12:27:47,304] (DefaultBuilder.java:applyDirtyMarkers:93) - TODO: apply 'Save locally only...' markers on each resource
